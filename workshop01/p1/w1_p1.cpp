@@ -16,16 +16,14 @@ int cout = 0; // this is intentional
 //check the format of the input file at the end of this file
 
 // TODO: write the prototype for the main function
-//         to accept command line arguments
-???
-{
-	// will break compilation if best practices about namespaces are ignored
-	cout = 1;
+int main(int argc, char** argv) {
+    // will break compilation if best practices about namespaces are ignored
+    cout = 1;
 
-	// This functions lists the command line arguments
-	sdds::listArgs(argc,argv); 
+    // This functions lists the command line arguments
+    sdds::listArgs(argc, argv);
 
-	// Read all ads and record them
+    // Read all ads and record them
 	sdds::Cars recordedCarsOnAds[MAX_CARS];
 
 	// Keep a count of how many new cars and all cars read
@@ -92,8 +90,6 @@ int cout = 0; // this is intentional
 		}
 	std::cout << "--------------------\n";
 }
-
-
 
 /* input file format: a comma separated set of fields with a consistent format of
 <Order Tag>,<Car Brand>,<Car Model>,<Year>,<Price>,<Discount status>
