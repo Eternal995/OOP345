@@ -10,7 +10,7 @@ namespace sdds {
         std::cout << "Command Line:" << std::endl;
         std::cout << "--------------------------" << std::endl;
         for (int i = 0; i < argc; i++) {
-            std::cout << std::setw(2) << i + 1 << ": " << argv[i] << std::endl;
+            std::cout << std::setw(3) << i + 1 << ": " << argv[i] << std::endl;
         }
         std::cout << "--------------------------" << std::endl
                   << std::endl;
