@@ -10,8 +10,10 @@ namespace sdds {
         std::cout << "Command Line:" << std::endl;
         std::cout << "--------------------------" << std::endl;
         for (int i = 0; i < argc; i++) {
-            std::cout << i + 1 << ": " << argv[i] << std::endl;
+            std::cout << std::setw(2) << i + 1 << ": " << argv[i] << std::endl;
         }
+        std::cout << "--------------------------" << std::endl
+                  << std::endl;
     }
 
     std::istream& Cars::read(std::istream& is) {
@@ -20,8 +22,8 @@ namespace sdds {
 
         is >> m_status;
         is.ignore();
-        is.getline(m_brand, ',');
-        is.getline(m_model, ',');
+        is.getline(m_brand, 9, ',');
+        is.getline(m_model, 14, ',');
         is >> m_year;
         is.ignore();
         is >> m_price;
@@ -29,6 +31,7 @@ namespace sdds {
         char temp;
         is >> temp;
         m_promo = (temp == 'Y') ? true : false;
+        is.ignore();
         return is;
     }
 
@@ -38,17 +41,17 @@ namespace sdds {
             count = 0;
         }
         std::cout.setf(std::ios::left);
-        std::cout.precision(2);
         std::cout << std::setw(2) << std::setfill(' ') << ++count << ". ";
-        if (!m_brand) {
+        if (m_brand[0] == '\0') {
             std::cout << "No Car" << std::endl;
             return;
         }
-        std::cout << std::setw(10) << m_brand << "|";
-        std::cout << std::setw(15) << m_model << "|";
-        std::cout << m_year << "|";
+        std::cout << std::setw(10) << m_brand << "| ";
+        std::cout << std::setw(15) << m_model << "| ";
+        std::cout << m_year << " |";
         std::cout.unsetf(std::ios::left);
-        std::cout.setf(std::ios::right);
+        std::cout.setf(std::ios::fixed);
+        std::cout.precision(2);
         std::cout << std::setw(12) << m_price * (1 + g_taxrate) << "|";
         if (m_promo) {
             std::cout << std::setw(12) << m_price * (1 + g_taxrate) * (1 - g_discount);
