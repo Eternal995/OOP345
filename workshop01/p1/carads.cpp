@@ -1,7 +1,9 @@
 #include "carads.h"
 
-#include <fstream>
 #include <iomanip>
+
+double g_taxrate = 0.;
+double g_discount = 0.;
 
 namespace sdds {
     void listArgs(int argc, char** argv) {

@@ -19,6 +19,7 @@ namespace sdds {
 
       public:
         Cars() {}
+        ~Cars() {}
 
         std::istream& read(std::istream& is);
 
