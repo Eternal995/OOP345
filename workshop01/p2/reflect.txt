@@ -1,0 +1,62 @@
+/*
+*****************************************************************************
+Full Name : Yongda Long
+Student ID# : 172800211
+Email : ylong9@myseneca.ca
+Section : OOP345NBB
+
+I have done all the coding by myself and only copied the code that 
+my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+1. 
+internal linkage is only accessible when calling the function that defines the 
+internal linking variable, and will remain in the memory until the program is terminated.
+for example, in the carads.cpp function display, we defined the variable:
+
+static int count = 0;
+
+this is an internal linking variable and holds its value, and every time we call the 
+function display, the function will remember the value in variable and carry it into 
+the new function call.
+
+external linkage is like a global variable but can be used in multiple modules at the same time.
+for example, we defined the variables in carads.h:
+
+extern double g_taxrate;
+extern double g_discount;
+
+and we use this variable both in carads.cpp and w1_p2.cpp to update the tax rate and discount amount, 
+without using additional memory.
+
+2.
+As stated in above, static variable is an internal linking variable, which will remain in the memory until 
+the program is terminated, and it will retain its value every time we call the function that defines the 
+variable, in the display function, we are using the count variable as a static variable which we can 
+then denote each output its number by adding 1 to count each time we call the function display, 
+and the count variable will remain in the memory even if the function is returned.
+
+3.
+in part 2 I stored the brand of car in the Car class using dynamic memory instead of static memory:
+
+char* m_brand{nullptr};
+
+since it is using dynamic memory we have to allocate memory every time we stored data into the variable and 
+delocated memory when it's out of scope. thus we need to apply the rule of three, which is we need to implement 
+the destructor, the copy constructor, and the copy assignment operator:
+
+~Cars();
+Cars& operator=(const Cars& source);
+operator bool();
+
+to prevent memory leak.
+
+The reason for copy constructor and copy assignment operator is that when we copy or create object from copying:
+
+Cars car1;
+Cars car2(car1);
+Cars car3 = car1;
+
+we need to make sure we are doing deep copying instead of shallow copying, and the destructor will ensure we delocate 
+the dynamic memory when the object go out of scope.
