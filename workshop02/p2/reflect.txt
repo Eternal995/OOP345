@@ -1,0 +1,69 @@
+/*
+*****************************************************************************
+Full Name : Yongda Long
+Student ID# : 172800211
+Email : ylong9@myseneca.ca
+Section : OOP345NBB
+
+I have done all the coding by myself and only copied the code that 
+my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+1.
+when we are copying:
+
+    TennisLog& TennisLog::operator=(const TennisLog& source) {
+        ...
+
+        m_count = source.m_count;
+        m_match = new TennisMatch[m_count];
+        for (size_t i = 0; i < m_count; i++) {
+            m_match[i] = source.m_match[i];
+        }
+        
+        ...
+    }
+
+we can see from the code that we are going through the entirety of the source object
+and copying everything to the newly created object, which is very time consuming.
+
+but when we move:
+
+    TennisLog& TennisLog::operator=(TennisLog&& source) {
+        ...
+
+        m_count = source.m_count;
+        source.m_count = 0;
+        m_match = source.m_match;
+        source.m_match = nullptr;
+        
+        ...
+    }
+
+the only thing we are doing is we are copying the pointer in old object to new object, 
+then we change the pointer in old object to nullptr, this way, we do not care what's stored
+inside the old object, we are justing moving the pointer from old object to new object, that's 
+why it takes nearly no time cause the only thing we do is copying the pointer.
+
+2.
+to read the file we first go through the file once to get how much lines of records there is, then 
+we allocated enough memory for that much data and then rewind the file pointer and read all data in.
+this way we need to read through the file twice, thus it will take twice the time.
+
+Another way of doing it is we started with an empty TennisLog, then while it is not end of file, 
+we can read the data into a temp TennisMatch object, then use the addMatch method to add to the current 
+TennisLog object. using this way we only need to read the file once, but every time we add a match to log,
+the program need to delocate the memory then allocate new memory that can store one more match data, 
+and also copying everything from old data to new data, so it probably will not reduce the time using.
+
+3.
+system clock is the clock that showing real world time, so when you have a time point of system clock, 
+it represents a specific time spot of a real world time, for example September 25th, 2022 12:00:00, and 
+if we change the value, we can just change the date of it represents.
+
+steady clock is the clock that can never be changed, it does not relate to real world time, and its time spot 
+can never be decreased.
+
+we use system clock for representing show the real world time, like something is happening at a specific time,
+and we use steady clock to count a time interval, such as how long it takes to finish something.
