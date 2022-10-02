@@ -23,6 +23,7 @@ namespace sdds {
         //       Implement them in the Dictionary.cpp file.
         Dictionary() : m_term{""}, m_definition{""} {};
         Dictionary& operator=(const Dictionary& source);
+        bool operator==(const Dictionary& source) const;
         std::ostream& display(std::ostream& os) const;
     };
     std::ostream& operator<<(std::ostream& os, const Dictionary& dict);

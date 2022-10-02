@@ -8,6 +8,7 @@
 namespace sdds {
     template <typename T, int CAPACITY>
     class Queue {
+      protected:
         T m_element[CAPACITY]{};
         T m_empty{};
         unsigned int m_no{0};
@@ -15,7 +16,9 @@ namespace sdds {
       public:
         Queue() {}
 
-        bool push(const T& item) {
+        virtual ~Queue() {}
+
+        virtual bool push(const T& item) {
             if (m_no >= CAPACITY) {
                 return false;
             }
@@ -52,7 +55,7 @@ namespace sdds {
             return os;
         }
 
-        T operator[](unsigned int index) {
+        T operator[](unsigned int index) const {
             if (index >= m_no) {
                 return m_empty;
             }

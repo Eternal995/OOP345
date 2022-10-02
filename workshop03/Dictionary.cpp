@@ -15,6 +15,12 @@ namespace sdds {
         return *this;
     }
 
+    bool Dictionary::operator==(const Dictionary& source) const {
+        if (this == &source)
+            return true;
+        return (m_term == source.m_term && m_definition == source.m_definition);
+    }
+
     std::ostream& Dictionary::display(std::ostream& os) const {
         os.fill(' ');
         os.setf(std::ios::right);
