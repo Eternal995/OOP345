@@ -1,0 +1,39 @@
+/*
+*****************************************************************************
+Full Name : Yongda Long
+Student ID# : 172800211
+Email : ylong9@myseneca.ca
+Section : OOP345NBB
+
+I have done all the coding by myself and only copied the code that 
+my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+this workshop is implementing a class template and specialization template.
+
+We specialized the push function in UniqueQueue module:
+
+bool UniqueQueue<double>::push(const double& item) {
+    for (unsigned int i = 0; i < m_no; i++) {
+        if (std::fabs(item - m_element[i]) <= 0.005)
+            return false;
+    }
+    return Queue<double, 100>::push(item);
+}
+
+the reason we do this specialization is that we have different standard for double 
+type than other types, for double we define two numbers within 0.005 to be same, and 
+for any other type we need them to be identical:
+
+double: if (std::fabs(item - m_element[i]) <= 0.005)
+other: if (item == this->m_element[i])
+
+In implementing Queue and UniqueQueue module, we define the two member functions:
+
+Queue<Dictionary, 100u>::Queue()
+bool UniqueQueue<double>::push(const double& item)
+
+in the header file but outside class definitions, this is because they are specialization 
+templates, and they need to be in the header file so the program can process the correct 
+specialization for that particular types.
