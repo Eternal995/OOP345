@@ -63,7 +63,7 @@ namespace sdds {
         os.width(10);
         os << m_id << ": ";
         os.width(20);
-        os << m_name << " ";
+        os << m_name << "  ";
         os.unsetf(std::ios::right);
         os.setf(std::ios::left);
         os.width(20);
