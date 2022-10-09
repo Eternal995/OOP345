@@ -1,0 +1,66 @@
+/*
+*****************************************************************************
+Full Name : Yongda Long
+Student ID# : 172800211
+Email : ylong9@myseneca.ca
+Section : OOP345NBB
+
+I have done all the coding by myself and only copied the code that 
+my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+1.
+In this workshop, the relationship between reservation and restaurant is composition, 
+in this relationship the reservation only belongs to one restaurant, and reservations 
+are created and destroyed with the restaurant object, as wen can see in the constructor 
+and destructor of restaurant:
+
+for (size_t i = 0; i < m_cnt; i++) {
+    m_res[i] = new Reservation(*(reservations[i]));
+}
+
+for (size_t i = 0; i < m_cnt; i++) {
+    if (m_res[i] != nullptr) {
+        delete m_res[i];
+        m_res[i] = nullptr;
+    }
+}
+
+and the relationship between reservation and ConfirmationSender is aggregation, 
+the ConfirmationSender only uses the reservations and reservations do not belong 
+to any ConfirmationSender object, so it only have an empty constructor because it 
+does not creating any reservations, and will not destroy any in the destructor too, 
+as we can see in the destructor of ConfirmationSender:
+
+ConfirmationSender::~ConfirmationSender() {
+    if (m_res != nullptr) {
+        delete[] m_res;
+        m_res = nullptr;
+    }
+}
+
+2.
+For both composition and aggregation, the move functions are the same because move 
+will only copy the address of the pointers and do not care about what is the behaver 
+of its members.
+
+But for copy functions, we are doing copies of reservations for composition:
+
+m_cnt = source.m_cnt;
+m_res = new Reservation*[m_cnt];
+for (size_t i = 0; i < m_cnt; i++) {
+    m_res[i] = new Reservation(*(source.m_res[i]));
+}
+
+this way we are creating new objects of Reservation inside of Restaurant object, and 
+means that the reservations belong to that restaurant.
+
+But for aggregation, we are only copying the address of the reservations so we have access
+to those reservations when we need them:
+
+m_cnt = source.m_cnt;
+m_res = new const Reservation*[m_cnt];
+    for (size_t i = 0; i < m_cnt; i++) {
+        m_res[i] = source.m_res[i];
+    }
