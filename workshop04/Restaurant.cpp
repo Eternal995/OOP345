@@ -39,7 +39,7 @@ namespace sdds {
     }
 
     Restaurant& Restaurant::operator=(Restaurant&& source) {
-        if (this != &source)
+        if (this == &source)
             return *this;
 
         deallocate();
