@@ -1,6 +1,7 @@
 #ifndef _SDDS_RESERVATION_H_
 #define _SDDS_RESERVATION_H_
 
+#include <iostream>
 #include <string>
 
 namespace sdds {
@@ -14,16 +15,15 @@ namespace sdds {
 
       public:
         Reservation() {}
-
         Reservation(const std::string& res);
-
+        Reservation(const Reservation& source);
+        ~Reservation() {}
+        Reservation& operator=(const Reservation& source);
         void update(int day, int time);
-
-        void display(std::ostream& os) const;
+        friend std::ostream& operator<<(std::ostream& os, const Reservation& res);
     };
 
     std::string removeSpaces(std::string source);
-    std::ostream& operator<<(std::ostream& os, const Reservation& res);
 }
 
 #endif
