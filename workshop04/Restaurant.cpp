@@ -7,7 +7,7 @@ namespace sdds {
         m_cnt = cnt;
         m_res = new Reservation*[m_cnt];
         for (size_t i = 0; i < m_cnt; i++) {
-            m_res[i] = new Reservation(*reservations[i]);
+            m_res[i] = new Reservation(*(reservations[i]));
         }
     }
 
@@ -24,7 +24,7 @@ namespace sdds {
     }
 
     Restaurant& Restaurant::operator=(const Restaurant& source) {
-        if (this != &source)
+        if (this == &source)
             return *this;
 
         deallocate();
@@ -32,7 +32,7 @@ namespace sdds {
         m_cnt = source.m_cnt;
         m_res = new Reservation*[m_cnt];
         for (size_t i = 0; i < m_cnt; i++) {
-            m_res[i] = new Reservation(*source.m_res[i]);
+            m_res[i] = new Reservation(*(source.m_res[i]));
         }
 
         return *this;
