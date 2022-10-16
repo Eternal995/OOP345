@@ -1,0 +1,44 @@
+/*
+*****************************************************************************
+Full Name : Yongda Long
+Student ID# : 172800211
+Email : ylong9@myseneca.ca
+Section : OOP345NBB
+
+I have done all the coding by myself and only copied the code that 
+my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+1.
+functor is a function object, it can be called as a function but exist as a 
+class/struct, it is implemented by overloading operator() in the class/struct.
+we use functors when we want to use an object like a function.
+
+lambda expression is a nameless function that stored in a variable, and can be 
+called when we need, for example:
+    auto fixPrice = [&](Book& book) {
+        if (book.country() == "US")
+            book.price() *= usdToCadRate;
+        else if (book.country() == "UK" && book.year() >= 1990 && book.year() <= 1999)
+            book.price() *= gbpToCadRate;
+    };
+we use lambda expressions when we only need that function a few times and/or we don't want 
+to give it a name.
+
+
+2.
+we can just print out a message with error, instead of throw in the constructor. but with 
+printing error we are not able to use try and catch method to handle the error.
+
+3.
+the Book and Movie class shares a lot similarity, so I would created a base class called Media 
+or something then implementing Book and Movie as derived class, so we can implement the shared 
+attribute/method in the base class and only need have their unique properties in the derived class.
+
+4.
+the default constructor is necessary, in the w5_p2.cpp, we are initializing using default constructor:
+
+Movie movies[5];
+
+so without default constructor, the program would not build successfully.
