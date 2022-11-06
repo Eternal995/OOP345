@@ -43,7 +43,7 @@ namespace sdds {
     void Car::display(std::ostream& os) const {
         os << "| " << std::right << std::setw(10) << m_maker << " | "
            << std::left << std::setw(6) << m_condition << " | "
-           << std::fixed << std::setw(6) << std::setprecision(2) << m_speed << " |";
+           << std::fixed << std::setw(6) << std::setprecision(2) << topSpeed() << " |";
     }
 
     std::string Car::removeSpaces(std::string source) {
