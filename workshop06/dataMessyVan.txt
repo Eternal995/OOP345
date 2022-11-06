@@ -1,0 +1,7 @@
+V, Nissan  , p, d, b, 110, g
+l, Iridium, c, c, n, 180, e 
+V, GMC   , m, p, u, 100, g
+v, VW, c, c, b, 120, g
+L, VW, c, c, n, 220, e
+l, Nissan, c ,c, u, 240, g
+i, Iridium, c , c, n, 160, e

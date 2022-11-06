@@ -51,7 +51,8 @@
       "streambuf": "cpp",
       "typeinfo": "cpp",
       "chrono": "cpp",
-      "ratio": "cpp"
+      "ratio": "cpp",
+      "list": "cpp"
     },
     "cSpell.words": [
         "Birthdate",

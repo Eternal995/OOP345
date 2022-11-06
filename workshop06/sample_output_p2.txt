@@ -1,0 +1,84 @@
+Command Line:
+--------------------------
+  1: ws
+  2: dataCleanCar.txt
+  3: dataMessyCar.txt
+  4: dataCleanVan.txt
+  5: dataMessyVan.txt
+--------------------------
+
+--------------------------------
+|  Car in the autoshop!        |
+--------------------------------
+|     Toyota | new    | 157.00 |
+|     Jaguar | used   | 295.20 |*
+|      Honda | broken | 145.00 |
+|     Porche | used   | 365.40 |*
+|   Chrysler | new    | 173.00 |
+--------------------------------
+Invalid record!
+Invalid record!
+Unrecognized record type: [t]
+--------------------------------
+|  Car in the autoshop!        |
+--------------------------------
+|     Toyota | new    | 157.00 |
+|     Jaguar | used   | 295.20 |*
+|      Honda | broken | 145.00 |
+|     Porche | used   | 365.40 |*
+|   Chrysler | new    | 173.00 |
+| Alfa Romeo | new    | 176.00 |
+|       Ford | new    | 162.00 |
+|   Red Bull | broken | 346.56 |*
+|    Ferrari | new    | 367.33 |*
+--------------------------------
+------------------------------------------------------------
+|  Van in the autoshop!                                    |
+------------------------------------------------------------
+|     Ford | pickup       | delivery     | new    | 120.00 |
+| Mercedes | camper       | camping      | new    | 217.00 | electric van  *
+|      GMC | mini-bus     | passenger    | used   | 100.00 |
+|       VW | camper       | camping      | used   | 120.00 |
+|       VW | camper       | camping      | broken | 220.00 | electric van  *
+------------------------------------------------------------
+Invalid record!
+Unrecognized record type: [i]
+------------------------------------------------------------
+|  Van in the autoshop!                                    |
+------------------------------------------------------------
+|     Ford | pickup       | delivery     | new    | 120.00 |
+| Mercedes | camper       | camping      | new    | 217.00 | electric van  *
+|      GMC | mini-bus     | passenger    | used   | 100.00 |
+|       VW | camper       | camping      | used   | 120.00 |
+|       VW | camper       | camping      | broken | 220.00 | electric van  *
+|   Nissan | pickup       | delivery     | broken | 110.00 |
+|  Iridium | camper       | camping      | new    | 180.00 | electric van  *
+|      GMC | mini-bus     | passenger    | used   | 100.00 |
+|       VW | camper       | camping      | broken | 120.00 |
+|       VW | camper       | camping      | new    | 220.00 | electric van  *
+------------------------------------------------------------
+
+--------------------------------
+|       Fast Vehicles          |
+--------------------------------
+|     Porche | used   | 365.40 |*
+|   Red Bull | broken | 346.56 |*
+|    Ferrari | new    | 367.33 |*
+--------------------------------
+
+--------------------------------
+| Cars in need of repair       |
+--------------------------------
+|      Honda | broken | 145.00 |
+|   Red Bull | broken | 346.56 |*
+--------------------------------
+
+------------------------------------------------------------
+|  Vans in need of repair                                  |
+------------------------------------------------------------
+|       VW | camper       | camping      | broken | 220.00 | electric van  *
+|   Nissan | pickup       | delivery     | broken | 110.00 |
+|       VW | camper       | camping      | broken | 120.00 |
+------------------------------------------------------------
+
+

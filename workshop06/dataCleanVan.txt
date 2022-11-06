@@ -1,0 +1,5 @@
+v, Ford  , p, d, n, 120
+l, Mercedes, c, c, n, 217, e 
+v, GMC   , m, p, u, 100
+v, VW, c, c, u, 120
+l, VW, c, c, b, 220, e
