@@ -24,6 +24,8 @@ void loadData(const char* filename, sdds::Autoshop& as) {
             sdds::Vehicle* aVehicle = sdds::createInstance(file);
             if (aVehicle)
                 as += aVehicle;
+        } catch (char error) {
+            std::cout << "Unrecognized record type: [" << error << "]" << std::endl;
         } catch (const char* error) {
             std::cout << error << std::endl;
         }

@@ -22,8 +22,7 @@ namespace sdds {
             std::stringstream sstr(temp);
             result = new Luxuryvan(sstr);
         } else {
-            std::string err = "]";
-            std::string error = "Unrecognized record type: [" + temp[0] + err;
+            char error = temp[0];
             throw error;
         }
         return result;
