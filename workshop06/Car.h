@@ -18,6 +18,7 @@ namespace sdds {
         std::string condition() const { return m_condition; }
         double topSpeed() const { return m_speed; }
         void display(std::ostream& os) const;
+        std::string removeSpaces(std::string source);
     };
 }
 

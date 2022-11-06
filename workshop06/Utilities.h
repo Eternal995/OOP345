@@ -4,12 +4,10 @@
 #include <iostream>
 #include <string>
 
-#include "Car.h"
-#include "Van.h"
-
+#include "Luxuryvan.h"
+#include "Racecar.h"
 namespace sdds {
     Vehicle* createInstance(std::istream& is);
-    std::string removeSpaces(std::string source);
 }
 
 #endif

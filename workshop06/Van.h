@@ -5,7 +5,6 @@
 #include <string>
 
 #include "Vehicle.h"
-
 namespace sdds {
     class Van : public Vehicle {
         std::string m_maker{};
@@ -22,6 +21,7 @@ namespace sdds {
         std::string type() const { return m_type; }
         std::string usage() const { return m_purpose; }
         void display(std::ostream& os) const;
+        std::string removeSpaces(std::string source);
     };
 }
 
