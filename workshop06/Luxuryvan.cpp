@@ -8,7 +8,7 @@ namespace sdds {
         temp = temp.substr(temp.find_last_of(',') + 1);
         temp = removeSpaces(temp);
         if (temp != "e") {
-            throw "Invalid Record!";
+            throw "Invalid record!";
         }
     }
 

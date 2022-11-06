@@ -30,13 +30,13 @@ namespace sdds {
         } else if (condition[0] == 'b') {
             m_condition = "broken";
         } else {
-            throw "Invalid Record!";
+            throw "Invalid record!";
         }
 
         try {
             m_speed = std::stod(removeSpaces(temp));
         } catch (const std::invalid_argument& err) {
-            throw "Invalid Record!";
+            throw "Invalid record!";
         }
     }
 

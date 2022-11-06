@@ -30,7 +30,7 @@ namespace sdds {
         } else if (condition[0] == 'c') {
             m_type = "camper";
         } else {
-            throw "Invalid Record!";
+            throw "Invalid record!";
         }
 
         pos = temp.find(',');
@@ -44,7 +44,7 @@ namespace sdds {
         } else if (condition[0] == 'c') {
             m_purpose = "camping";
         } else {
-            throw "Invalid Record!";
+            throw "Invalid record!";
         }
 
         pos = temp.find(',');
@@ -58,7 +58,7 @@ namespace sdds {
         } else if (condition[0] == 'b') {
             m_condition = "broken";
         } else {
-            throw "Invalid Record!";
+            throw "Invalid record!";
         }
 
         m_speed = std::stod(removeSpaces(temp));
