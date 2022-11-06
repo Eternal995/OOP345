@@ -1,0 +1,35 @@
+/*
+*****************************************************************************
+Full Name : Yongda Long
+Student ID# : 172800211
+Email : ylong9@myseneca.ca
+Section : OOP345NBB
+
+I have done all the coding by myself and only copied the code that 
+my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+1.
+The vector 
+std::vector<Vehicle*> m_vehicles;
+is storing address Vehicle class, so every time we store data of a vehicle we are 
+allocating new memory for it:
+result = new Car(sstr);
+result = new Van(sstr);
+result = new Racecar(sstr);
+result = new Luxuryvan(sstr);
+thus we need to delocate memory to prevent memory leak
+
+2.
+the loadData function first check if the file is opened currectly, then it will use 
+try and catch error method to get error messages if the reading process is threw.
+The only other solution I can think of is to manually check the file line by line if it 
+contains any invalid information then put it into constructor of classes, but this way 
+would cost more time so it's not a good solution.
+
+3.
+It is possible to use those, but if we use std::list<sdds::Vehicle> and std::vector<sdds::Vehicle>, 
+but every time we pulling element from or push element into the list/vector the compiler would have 
+to copy the data of that object again, so it will consume more memory and time so it is not 
+efficient to use std::list<sdds::Vehicle> and std::vector<sdds::Vehicle>.
