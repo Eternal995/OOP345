@@ -28,7 +28,7 @@ namespace sdds {
         if (condition[0] == 'p') {
             m_type = "pickup";
         } else if (condition[0] == 'm') {
-            m_type = "minibus";
+            m_type = "mini-bus";
         } else if (condition[0] == 'c') {
             m_type = "camper";
         }
