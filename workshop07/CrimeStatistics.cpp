@@ -43,7 +43,7 @@ namespace sdds {
            << " | " << std::setw(20) << crime.m_crime
            << " | " << std::right << std::setw(6) << crime.m_year
            << " | " << std::setw(4) << crime.m_case
-           << " | " << std::setw(3) << crime.m_resolved;
+           << " | " << std::setw(3) << crime.m_resolved << " |";
         return os;
     }
 
