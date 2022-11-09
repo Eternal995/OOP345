@@ -1,0 +1,41 @@
+/*
+*****************************************************************************
+Full Name : Yongda Long
+Student ID# : 172800211
+Email : ylong9@myseneca.ca
+Section : OOP345NBB
+
+I have done all the coding by myself and only copied the code that
+my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+1.
+for_each algorithm for display: the display function ask us to display every crime 
+in the vector m_crime so use for_each can iterate every member in the vector.
+
+sort algorithm for sort: the sort member function asked to sort the element in m_crime 
+so it meant to use the sort algorithm.
+
+transform algorithm for cleanList: I could've used for_each algorithm for the cleanList 
+function but since we are not allowed to use duplicate algorithm I choose to use the 
+transform algorithm that basically rewrite each element of the vector and everything will 
+stay the same except changing [none] to empty.
+
+any_of algorithm for inCollection: the inCollection function want to know if a crime is included in
+the collection so it's reasonable to use any_of to check if any of the element in vector meet
+the requirement.
+
+count_if and copy_if for getListForProvince: this could've been a for_each function as well, 
+where we just need to create an empty list then push_back each element if it matches the 
+requirement, but since we are not allowed to use duplicate, I used count_if to check how long 
+the list will be then use copy_if to copy element into the list.
+
+2.
+some of the algorithm would be much easier than if we need to write the loop out, such as sort, 
+but I don't find a particular reason to use STL algorithm but not loop.
+
+3.
+we can first check if the input parameters is valid, and throw an error if not.
+another way is to design a menu and let client input numbers to decided which field is used to sort,
+so that it will preventing the problem of inputting invalid strings.
