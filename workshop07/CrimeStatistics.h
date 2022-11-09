@@ -2,6 +2,7 @@
 #define _SDDS_CRIMESTATISTICS_H_
 
 #include <iostream>
+#include <list>
 #include <string>
 #include <vector>
 
@@ -22,6 +23,10 @@ namespace sdds {
         CrimeStatistics() {}
         CrimeStatistics(const char* file);
         void display(std::ostream& os) const;
+        void sort(const std::string field);
+        void cleanList();
+        bool inCollection(const std::string crime) const;
+        std::list<Crime> getListForProvince(const std::string province) const;
     };
     std::ostream& operator<<(std::ostream& os, const Crime& crime);
     std::string removeSpaces(std::string source);

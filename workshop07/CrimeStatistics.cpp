@@ -32,9 +32,56 @@ namespace sdds {
     }
 
     void CrimeStatistics::display(std::ostream& os) const {
-        std::for_each(m_crime.begin(), m_crime.end(), [&os](const Crime& m_crime) {
-            os << m_crime << std::endl;
+        int totalCrime = 0, totalResolved = 0;
+        std::for_each(m_crime.begin(), m_crime.end(), [&os, &totalCrime, &totalResolved](const Crime& crime) {
+            os << crime << std::endl;
+            totalCrime += crime.m_case;
+            totalResolved += crime.m_resolved;
         });
+        os << std::setw(89) << std::setfill('-') << '\n'
+           << std::setfill(' ') << "|"
+           << std::right << std::setw(79) << "Total Crimes: "
+           << std::setw(6) << totalCrime << " |" << '\n'
+           << "|"
+           << std::setw(79) << "Total Resolved Cases: "
+           << std::setw(6) << totalResolved << " |" << std::endl;
+    }
+
+    void CrimeStatistics::sort(const std::string field) {
+        std::sort(m_crime.begin(), m_crime.end(), [field](const Crime& lfs, const Crime& rhs) {
+            if (field == "Province")
+                return lfs.m_province < rhs.m_province;
+            if (field == "Crime")
+                return lfs.m_crime < rhs.m_crime;
+            if (field == "Cases")
+                return lfs.m_case < rhs.m_case;
+            return lfs.m_resolved < rhs.m_resolved;
+        });
+    }
+
+    void CrimeStatistics::cleanList() {
+        std::transform(m_crime.begin(), m_crime.end(), m_crime.begin(), [](Crime crime) {
+            if (crime.m_crime == "[None]")
+                crime.m_crime = "";
+            return crime;
+        });
+    }
+
+    bool CrimeStatistics::inCollection(const std::string crime) const {
+        return std::any_of(m_crime.begin(), m_crime.end(), [crime](const Crime c) {
+            return c.m_crime == crime;
+        });
+    }
+
+    std::list<Crime> CrimeStatistics::getListForProvince(const std::string province) const {
+        int length = std::count_if(m_crime.begin(), m_crime.end(), [province](const Crime c) {
+            return c.m_province == province;
+        });
+        std::list<Crime> result(length);
+        std::copy_if(m_crime.begin(), m_crime.end(), result.begin(), [province](const Crime c) {
+            return c.m_province == province;
+        });
+        return result;
     }
 
     std::ostream& operator<<(std::ostream& os, const Crime& crime) {
