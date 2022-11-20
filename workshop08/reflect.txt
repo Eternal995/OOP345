@@ -1,0 +1,53 @@
+/*
+*****************************************************************************
+Full Name : Yongda Long
+Student ID# : 172800211
+Email : ylong9@myseneca.ca
+Section : OOP345NBB
+
+I have done all the coding by myself and only copied the code that 
+my professor provided to complete my workshops and assignments.
+*****************************************************************************
+*/
+
+Smart pointer is much more easier to work with than raw pointers.
+For example in the writingrecord module, I first tried to work with raw pointer:
+
+EmployeeWage* ew = new EmployeeWage(emp[i].name, sal[j].salary);
+try {
+    ew->rangeValidator();
+} catch (const std::string& err) {
+    delete ew;
+    throw err;
+}
+activeEmp += ew;
+delete ew;
+
+since I create new object on heap, I need to consider every user case of the object 
+and need to remember to delete it on heap for every case including in the try catch 
+to avoid memory leaks.
+
+On the other hand, using smart pointer:
+
+std::unique_ptr<EmployeeWage> ew(new EmployeeWage(emp[i].name, sal[j].salary));
+ew->rangeValidator();
+activeEmp += ew.get();
+
+as we can see in the code, I don't need to think of deleting object after using them and 
+smart pointers can handle that by itself, which is very convenient to use.
+
+the syntax is different when creating:
+
+raw:
+EmployeeWage* ew = new EmployeeWage(emp[i].name, sal[j].salary);
+
+smart:
+std::unique_ptr<EmployeeWage> ew(new EmployeeWage(emp[i].name, sal[j].salary));
+
+and when using as parameter:
+
+raw:
+void operator+=(T* ptr)
+
+smart:
+void operator+=(std::unique_ptr<T> ptr)
