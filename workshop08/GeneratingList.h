@@ -33,7 +33,7 @@ namespace sdds {
 
         // TODO: Implement the Luhn Algorithm to check the
         //       valadity of SIN No's
-        bool checkLuhn(const std::string& source) {
+        bool checkLuhn(const std::string& source) const {
             int nDigits = source.length();
             int nSum = 0;
             bool isSecond = false;

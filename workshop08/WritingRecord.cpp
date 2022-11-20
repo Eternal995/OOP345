@@ -23,7 +23,7 @@ namespace sdds {
                         throw err;
                     }
                     activeEmp += ew;
-                    break;
+                    delete ew;
                 }
             }
         }
@@ -44,7 +44,6 @@ namespace sdds {
                     std::unique_ptr<EmployeeWage> ew(new EmployeeWage(emp[i].name, sal[j].salary));
                     ew->rangeValidator();
                     activeEmp += ew.get();
-                    break;
                 }
             }
         }
