@@ -88,7 +88,7 @@ namespace sdds {
         os << m_name << " - " << m_product << std::endl;
         for (size_t i = 0; i < m_cntItem; i++) {
             os << "[" << std::setfill('0') << std::setw(6) << m_lstItem[i]->m_serialNumber << "] "
-               << std::left << std::setfill(' ') << std::setw(m_widthField) << m_lstItem[i]->m_itemName << " - "
+               << std::left << std::setfill(' ') << std::setw(m_widthField) << m_lstItem[i]->m_itemName << " -   "
                << (m_lstItem[i]->m_isFilled ? "FILLED" : "TO BE FILLED") << std::endl;
         }
     }
