@@ -1,3 +1,11 @@
+// Name: Yongda Long
+// Seneca Student ID: 172800211
+// Seneca email: ylong9@myseneca.ca
+// Date of completion: Nov 26, 2022
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
 #include "CustomerOrder.h"
 
 #include <algorithm>
