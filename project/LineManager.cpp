@@ -27,13 +27,14 @@ namespace sdds {
             if (more)
                 nextStation = u.extractToken(temp, pos, more);
 
-            Workstation* thisWorkStation;
-            Workstation* nextWorkStation;
+            Workstation* thisWorkStation{nullptr};
+            Workstation* nextWorkStation{nullptr};
             std::for_each(stations.begin(), stations.end(), [&](Workstation* station) {
                 if (thisStation == station->getItemName())
                     thisWorkStation = station;
-                if (nextStation == station->getItemName())
-                    nextWorkStation = station;
+                else if (!nextStation.empty())
+                    if (nextStation == station->getItemName())
+                        nextWorkStation = station;
             });
 
             thisWorkStation->setNextStation(nextWorkStation);
@@ -55,6 +56,7 @@ namespace sdds {
     }
 
     void LineManager::reorderStations() {
+        std::cout << m_firstStation->getItemName() << std::endl;
         std::vector<Workstation*> temp{};
         Workstation* curr = m_firstStation;
         temp.push_back(curr);
