@@ -85,9 +85,9 @@ namespace sdds {
                 station.updateQuantity();
                 m_lstItem[i]->m_serialNumber = station.getNextSerialNumber();
                 m_lstItem[i]->m_isFilled = true;
-                os << "Filled " << m_name << ", " << m_product << " [" << m_lstItem[i]->m_itemName << "]" << std::endl;
+                os << "    Filled " << m_name << ", " << m_product << " [" << m_lstItem[i]->m_itemName << "]" << std::endl;
             } else {
-                os << "Unable to fill " << m_name << ", " << m_product << " [" << m_lstItem[i]->m_itemName << "]" << std::endl;
+                os << "    Unable to fill " << m_name << ", " << m_product << " [" << m_lstItem[i]->m_itemName << "]" << std::endl;
             }
         }
     }
