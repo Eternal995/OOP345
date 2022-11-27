@@ -14,27 +14,29 @@ namespace sdds {
         if (!ifs.is_open())
             throw std::string("Unable to open file.");
 
-        std::string temp, thisStation, nextStation;
-        size_t pos;
-        bool more;
-
         while (!ifs.eof()) {
+            std::string temp;
             std::getline(ifs, temp);
-            pos = 0;
-            more = true;
+            size_t pos = 0;
+            bool more = true;
+            std::string thisStation;
+            std::string nextStation;
 
             thisStation = u.extractToken(temp, pos, more);
             if (more)
                 nextStation = u.extractToken(temp, pos, more);
+
+            std::cout << thisStation << " " << nextStation << std::endl;
 
             Workstation* thisWorkStation{nullptr};
             Workstation* nextWorkStation{nullptr};
             std::for_each(stations.begin(), stations.end(), [&](Workstation* station) {
                 if (thisStation == station->getItemName())
                     thisWorkStation = station;
-                else if (!nextStation.empty())
+                else if (!nextStation.empty()) {
                     if (nextStation == station->getItemName())
                         nextWorkStation = station;
+                }
             });
 
             thisWorkStation->setNextStation(nextWorkStation);
@@ -56,13 +58,10 @@ namespace sdds {
     }
 
     void LineManager::reorderStations() {
-        std::cout << m_firstStation->getItemName() << std::endl;
-        std::vector<Workstation*> temp{};
-        Workstation* curr = m_firstStation;
-        temp.push_back(curr);
-        while (curr->getNextStation() != nullptr) {
-            curr = curr->getNextStation();
-            temp.push_back(curr);
+        std::vector<Workstation*> temp;
+        temp.push_back(m_firstStation);
+        while (temp.back()->getNextStation()) {
+            temp.push_back(temp.back()->getNextStation());
         }
         m_activeLine = temp;
     }
