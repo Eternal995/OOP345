@@ -29,7 +29,7 @@ namespace sdds {
 
     void Station::updateQuantity() {
         if (m_noInStock >= 1)
-            m_noInStock--;
+            --m_noInStock;
     }
 
     void Station::display(std::ostream& os, bool full) const {

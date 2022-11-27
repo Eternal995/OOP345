@@ -1,9 +1,9 @@
 #include "Workstation.h"
 
 namespace sdds {
-    std::deque<CustomerOrder> g_pending{};
-    std::deque<CustomerOrder> g_completed{};
-    std::deque<CustomerOrder> g_incomplete{};
+    std::deque<CustomerOrder> g_pending;
+    std::deque<CustomerOrder> g_completed;
+    std::deque<CustomerOrder> g_incomplete;
 
     void Workstation::fill(std::ostream& os) {
         if (!m_orders.empty())
