@@ -1,0 +1,19 @@
+// Name: Yongda Long
+// Seneca Student ID: 172800211
+// Seneca email: ylong9@myseneca.ca
+// Date of completion: Nov 27, 2022
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
+This is a really fun project to do, I learned a lot about 
+algorithm and data structure from this project. For example, 
+the Workstation model is acting like a linked list, which we 
+have pointer in the class member to point to next Workstation, 
+also we are using the deque model, which can be used as both a 
+stack and a queue. I also used a lot of the STL library functions
+which can save a lot time.
+
+Overall, this project is really useful for learning and reviewing 
+everything I have learned from this course, and I believe it will be 
+a really good experience for everything I will do for the future.
