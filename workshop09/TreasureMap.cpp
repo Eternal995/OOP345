@@ -5,8 +5,12 @@
 #include "TreasureMap.h"
 
 #include <fstream>
+#include <functional>
+#include <future>
 #include <iostream>
 #include <string>
+#include <thread>
+#include <vector>
 
 namespace sdds {
 
@@ -114,10 +118,10 @@ namespace sdds {
     size_t TreasureMap::findTreasure(char mark) {
         size_t count = 0;
 
-        // TODO: For part 2, comment this "for" loop and write the multihreaded version.
-        for (size_t i = 0; i < rows; ++i) {
-            count += digForTreasure(map[i], mark);
-        }
+        // // TODO: For part 2, comment this "for" loop and write the multihreaded version.
+        // for (size_t i = 0; i < rows; ++i) {
+        //     count += digForTreasure(map[i], mark);
+        // }
 
         return count;
     }
