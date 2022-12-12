@@ -52,7 +52,13 @@
       "typeinfo": "cpp",
       "chrono": "cpp",
       "ratio": "cpp",
-      "list": "cpp"
+      "list": "cpp",
+      "future": "cpp",
+      "condition_variable": "cpp",
+      "mutex": "cpp",
+      "semaphore": "cpp",
+      "stop_token": "cpp",
+      "thread": "cpp"
     },
     "cSpell.words": [
         "Birthdate",

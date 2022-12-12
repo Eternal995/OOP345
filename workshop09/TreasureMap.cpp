@@ -123,6 +123,53 @@ namespace sdds {
         //     count += digForTreasure(map[i], mark);
         // }
 
+        // const size_t noThread = rows;
+        // std::vector<std::thread> thread;
+
+        // for (size_t i = 0; i < noThread; i++) {
+        //     thread.push_back(std::thread([mark, i, &count, *this]() { count += digForTreasure(map[i], mark); }));
+        // }
+
+        // for (size_t i = 0; i < noThread; i++) {
+        //     thread[i].join();
+        // }
+
+        // return count;
+        size_t numThreads = 4;
+
+        std::size_t thread = 0;
+        std::string strings[numThreads];
+
+        auto dig = std::bind(digForTreasure, std::placeholders::_1, mark);
+        for (size_t i = 0; i < rows; i++) {
+            if (thread == numThreads) {
+                thread = 0;
+            }
+            // Split the strings into the same number of different stacks as the number of threads
+            strings[thread] += map[i];
+            thread++;
+        }
+
+        // Attemped to solve this with a vector of packaged_task first, get_future threw exceptions though,
+        // manual method with 4 threads it is!
+
+        std::packaged_task<std::size_t(std::string)> t1(dig);
+        std::packaged_task<std::size_t(std::string)> t2(dig);
+        std::packaged_task<std::size_t(std::string)> t3(dig);
+        std::packaged_task<std::size_t(std::string)> t4(dig);
+
+        auto f1 = t1.get_future();
+        auto f2 = t2.get_future();
+        auto f3 = t3.get_future();
+        auto f4 = t4.get_future();
+
+        t1(strings[0]);
+        t2(strings[1]);
+        t3(strings[2]);
+        t4(strings[3]);
+
+        count = f1.get() + f2.get() + f3.get() + f4.get();
+
         return count;
     }
 }
